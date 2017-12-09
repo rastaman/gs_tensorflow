@@ -1,0 +1,12 @@
+# Python(2.7) - system, 2.7.13
+# Bazel(0.3.0) - with brew
+# Pip(8.1.2) - with pip install --upgrade - 9.1.2
+
+# TensorFlow(0.7) - 1.4.1
+tensorflow
+# MatPlotlib(1.5.1) - 2.1.0
+matplotlib
+# Pandas(0.18.1) - 0.21.0
+pandas
+# NumPy(1.11.0) - 1.13.3
+numpy
