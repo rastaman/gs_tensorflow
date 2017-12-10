@@ -1,0 +1,9 @@
+function frameworkpython {
+    if [[ ! -z "$VIRTUAL_ENV" ]]; then
+        #test if we are running python 2 or 3
+        pyversion=`python -V 2>&1 | cut -d ' '  -f2 | cut -d. -f1,2`
+        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python$pyversion "$@"
+    else
+        echo "Not running in a virtualenv use regular python"
+    fi
+}

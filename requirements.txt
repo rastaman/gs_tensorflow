@@ -10,3 +10,5 @@ matplotlib
 pandas
 # NumPy(1.11.0) - 1.13.3
 numpy
+# Pillow - 4.3.0
+Pillow
