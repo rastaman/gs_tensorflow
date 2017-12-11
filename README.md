@@ -16,6 +16,7 @@ $ pip install -r requirements.txt
 - [python - tensorflow:AttributeError: 'module' object has no attribute 'mul' - Stack Overflow](https://stackoverflow.com/questions/42217059/tensorflowattributeerror-module-object-has-no-attribute-mul)
 - [tf.complex_abs not supported in r1.0.0 · Issue #7405 · tensorflow/tensorflow](https://github.com/tensorflow/tensorflow/issues/7405)
 - [tensorflow/RELEASE.md at master · tensorflow/tensorflow](https://github.com/tensorflow/tensorflow/blob/master/RELEASE.md)
+- [TypeError: Expected int32, got list containing Tensors of type '_Message' instead. · Issue #7031 · tensorflow/tensorflow](https://github.com/tensorflow/tensorflow/issues/7031)
 
 ## Matplotlib
 

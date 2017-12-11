@@ -103,3 +103,6 @@ ENV/
 
 # Mac
 **/.DS_Store
+
+# MNIST datas
+chapter_3/MNIST_data/
