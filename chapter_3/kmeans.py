@@ -3,9 +3,22 @@ import numpy as np
 import tensorflow as tf
 import pandas as pd
 
-num_vectors = 1000
+def display_partition(x_values,y_values,assignment_values):
+    labels = []
+    colors = ["red","blue","green","yellow"]
+    for i in xrange(len(assignment_values)):
+        labels.append(colors[(assignment_values[i])])
+    color = labels
+    df = pd.DataFrame\
+        (dict(x =x_values,y = y_values ,color = labels ))
+    fig, ax = plt.subplots()
+    ax.scatter(df['x'], df['y'], c=df['color'])
+    plt.show()
+
+num_vectors = 2000
 num_clusters = 4
-num_steps = 100
+n_samples_per_cluster = 500
+num_steps = 1000
 
 x_values = []
 y_values = []
@@ -44,13 +57,34 @@ vectors_subtration = tf.subtract(expanded_vectors,expanded_centroids)
 euclidean_distances = tf.reduce_sum(tf.square(vectors_subtration), 2)
 assignments = tf.to_int32(tf.argmin(euclidean_distances, 0))
 
+partitions = [0, 0, 1, 1, 0]
+num_partitions = 2
+data = [10, 20, 30, 40, 50]
+outputs = []
+outputs.append([10, 20, 50])
+outputs.append([30, 40])
+
 partitions = tf.dynamic_partition(vectors, assignments, num_clusters)
 
-update_centroids = tf.concat(0, \
-    [tf.expand_dims\
-    (tf.reduce_mean(partition, 0), 0)\
-    for partition in partitions])
+updates = []
+
+for partition in partitions:
+    reducee = tf.reduce_mean(partition, 0)
+    expansion = tf.expand_dims(reducee, 0)
+    updates.append(expansion)
+
+update_centroids = tf.concat(updates, 0)
 
 init_op = tf.global_variables_initializer()
 sess = tf.Session()
 sess.run(init_op)
+
+for step in xrange(num_steps):
+    _, centroid_values, assignment_values = sess.run([update_centroids,\
+                       centroids,\
+                       assignments])
+
+display_partition(x_values,y_values,assignment_values)
+plt.plot(x_values,y_values, 'o', label='Input Data')
+plt.legend()
+plt.show()
