@@ -106,3 +106,5 @@ ENV/
 
 # MNIST datas
 **/MNIST_data/
+
+chapter_5/simple-examples.tgz
