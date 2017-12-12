@@ -105,4 +105,4 @@ ENV/
 **/.DS_Store
 
 # MNIST datas
-chapter_3/MNIST_data/
+**/MNIST_data/
